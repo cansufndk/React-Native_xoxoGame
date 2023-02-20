@@ -18,6 +18,8 @@ const mapDispatchToProps = dispatch => {
   return {dispatch};
 };
 
+//          android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+
 const copyBox = original => {
   const copy = original.map(arr => {
     return arr.slice();
