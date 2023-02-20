@@ -65,13 +65,33 @@ const GameThree = connect(mapDispatchToProps)(props => {
     let turnBot;
 
     if (mediumGame) {
-      playerB.forEach(position => {
+      playerB.map(position => {
+        box[position] = 'O';
+        const win = calculateWinner('O');
+        if (win === 'O') {
+          turnBot = position;
+        }
+      });
+
+      if (!turnBot) {
+        playerB.map(position => {
+          box[position] = 'X';
+          const win = calculateWinner('X');
+          if (win === 'X') {
+            turnBot = position;
+          }
+        });
+      }
+
+      /* playerB.forEach(position => {
         const boxCopy = copyBox(box);
         boxCopy[position] = 'O';
         const winner = calculateWinner(boxCopy);
 
         if (winner === 'O') {
           turnBot = position;
+        } else {
+          turnBot != position;
         }
       });
 
@@ -83,13 +103,40 @@ const GameThree = connect(mapDispatchToProps)(props => {
 
           if (winner === 'X') {
             turnBot = position;
+          } else {
+            turnBot != position;
           }
         });
-      }
+      }*/
     }
 
     if (hardGame) {
-      playerB.forEach(position => {
+      playerB.map(position => {
+        let won = (box[position] = 'O');
+        const win = calculateWinner(won);
+        if (win === 'O') {
+          turnBot = position;
+          console.log('win = o', (turnBot = position));
+        } else {
+          turnBot = win;
+          console.log('win o ve x e eşit değil', (turnBot = win));
+        }
+      });
+
+      if (!turnBot) {
+        playerB.map(position => {
+          let won = (box[position] = 'X');
+          const win = calculateWinner(won);
+          if (win === 'X') {
+            turnBot = position;
+            console.log('bot yoksa X', (turnBot = position));
+          } else if (won === 'O') {
+            turnBot = position;
+            console.log('psotion o  eşit', (turnBot = position));
+          }
+        });
+      }
+      /* playerB.forEach(position => {
         const win = calculateWinner((box[position] = 'O'));
         if (win === 'O') {
           turnBot = position;
@@ -103,7 +150,7 @@ const GameThree = connect(mapDispatchToProps)(props => {
             turnBot = position;
           }
         });
-      }
+      }*/
     }
 
     if (!turnBot) {
