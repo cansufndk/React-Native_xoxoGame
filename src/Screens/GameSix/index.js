@@ -13,6 +13,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {useNavigation} from '@react-navigation/native';
 import {connect, useSelector} from 'react-redux';
 import {easyGame, hardGame, mediumGame} from '../../Redux/actions/app';
+import G1 from '../../ads/G/G1';
 
 const mapDispatchToProps = dispatch => {
   return {dispatch};
@@ -39,6 +40,7 @@ const GameSix = connect(mapDispatchToProps)(props => {
   }, [currentPlayer, box]);
 
   useEffect(() => {
+    G1()
     const winner = calculateWinner(box);
     if (winner === 'X') {
       Alert.alert('X Won :)');

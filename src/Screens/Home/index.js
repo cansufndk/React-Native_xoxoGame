@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -11,26 +11,29 @@ import {
   FlatList,
   Pressable,
 } from 'react-native';
-import {styles} from './styles';
+import { styles } from './styles';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useNavigation} from '@react-navigation/native';
-import {connect, useSelector} from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
+import { connect, useSelector } from 'react-redux';
 import {
   easyGame,
   hardGame,
   mediumGame,
   modalVisible,
 } from '../../Redux/actions/app';
+import B1 from '../../ads/B/B1';
+import G1 from '../../ads/G/G1';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const mapDispatchToProps = dispatch => {
-  return {dispatch};
+  return { dispatch };
 };
 
 const HomeScreen = connect(mapDispatchToProps)(props => {
+  G1()
   const state = useSelector(state => state.app);
-  const {dispatch} = props;
+  const { dispatch } = props;
   console.log('Home', state);
   const navigation = useNavigation();
   const [data, setData] = useState([
@@ -121,7 +124,7 @@ const HomeScreen = connect(mapDispatchToProps)(props => {
           }}
           bounces={false}
           keyExtractor={(item, i) => item + i}
-          renderItem={({item, index}) => {
+          renderItem={({ item, index }) => {
             return (
               <View style={styles.flatList} key={index}>
                 <TouchableOpacity disabled style={styles.fltbutton} key={index}>
@@ -204,11 +207,12 @@ const HomeScreen = connect(mapDispatchToProps)(props => {
           <MaterialCommunityIcons name="account" color={'orange'} size={40} />
         </TouchableOpacity>
       </View>
+      <B1 />
     </ImageBackground>
   );
 });
 
-export {HomeScreen};
+export { HomeScreen };
 
 /*<Button
           title="index"
