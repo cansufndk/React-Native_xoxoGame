@@ -1,4 +1,8 @@
 {
   "name": "xoxoGame",
-  "displayName": "xoxoGame"
+  "displayName": "xoxoGame",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-1017432203303316~7133150918",
+    "ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
+  }
 }

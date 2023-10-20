@@ -13,6 +13,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {useNavigation} from '@react-navigation/native';
 import {connect, useSelector} from 'react-redux';
 import {easyGame, mediumGame, hardGame} from '../../Redux/actions/app';
+import B2 from '../../ads/B/B2';
+import G2 from '../../ads/G/G2';
 
 const mapDispatchToProps = dispatch => {
   return {dispatch};
@@ -26,6 +28,7 @@ const copyBox = original => {
 };
 
 const GameThree = connect(mapDispatchToProps)(props => {
+  G2()
   const {dispatch} = props;
 
   const [box, setBox] = useState(['', '', '', '', '', '', '', '', '']);
@@ -392,6 +395,7 @@ const GameThree = connect(mapDispatchToProps)(props => {
             <MaterialCommunityIcons name="replay" color={'white'} size={40} />
           </TouchableOpacity>
         </View>
+        <B2/>
       </View>
     </ImageBackground>
   );
